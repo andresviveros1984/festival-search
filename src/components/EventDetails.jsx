@@ -21,7 +21,6 @@ function EventDetails({ favourites, setFavourites }) {
     function handleFavourites(favItem) {
         setFavourites([...favourites, favItem])
         // console.log('logging favourites from details comp', favItem)
-        console.log(favourites)
     }
 
     useEffect(() => {
@@ -31,13 +30,35 @@ function EventDetails({ favourites, setFavourites }) {
     }, [id])
 
     return (
-        <Box>
-            {/* {console.log(eventDetails.results)} */}
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                border: '1px solid green',
+            }}
+        >
+            {/* {console.log(eventDetails.results.eventname)} */}
+            <div className="heading">
+                <Typography
+                    variant="inherit"
+                    color="initial"
+                    sx={{ border: '1px solid blue' }}
+                >
+                    event name
+                </Typography>
+            </div>
+            <div className="event-start-date">Saturday 2 September 2024</div>
+            <div className="opening-times">Starts: 23:00</div>
+            <div className="event-image">
+                image here
+                <img src="" alt="" />
+            </div>
             <div>
                 <button onClick={() => navigate('/favourites')}>
                     Favourites
                 </button>
-                <p>Event details page</p>
+
                 <button onClick={() => handleFavourites(eventDetails.results)}>
                     add to favourites?
                 </button>
