@@ -22,7 +22,6 @@ function App() {
 
 
   useEffect(() => {
-    console.log(location.pathname)
     if (location.pathname.includes('event') || location.pathname.includes('favourites')) {
       return
     } else {

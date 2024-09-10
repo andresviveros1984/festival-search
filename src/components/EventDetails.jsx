@@ -22,7 +22,7 @@ function EventDetails({ favourites, setFavourites }) {
         setFavourites([...favourites, favItem])
         // console.log('logging favourites from details comp', favItem)
     }
-
+    console.log(eventDetails.results)
     useEffect(() => {
         if (id) {
             getEventDetails(id, setEventDetails)
@@ -41,15 +41,25 @@ function EventDetails({ favourites, setFavourites }) {
             {/* {console.log(eventDetails.results.eventname)} */}
             <div className="heading">
                 <Typography
-                    variant="inherit"
+                    variant="h1"
                     color="initial"
                     sx={{ border: '1px solid blue' }}
                 >
-                    event name
+                    event name here
                 </Typography>
             </div>
-            <div className="event-start-date">Saturday 2 September 2024</div>
-            <div className="opening-times">Starts: 23:00</div>
+            <div className="event-date-times">
+                <Typography variant="h2" color="initial">
+                    Saturday 2 September 2024
+                </Typography>
+                <Typography
+                    variant="h3"
+                    color="initial"
+                    sx={{ textAlign: 'center' }}
+                >
+                    Starts: 23:00
+                </Typography>
+            </div>
             <div className="event-image">
                 image here
                 <img src="" alt="" />
