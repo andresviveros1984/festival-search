@@ -68,8 +68,7 @@ function EventDetails({ favourites, setFavourites }) {
                 </Typography>
             </div>
             <div className="event-image">
-                image here
-                <img src="" alt="" />
+                <img src={eventDetails.results.largeimageurl} alt="" />
             </div>
             <div>
                 <button onClick={() => navigate('/favourites')}>
