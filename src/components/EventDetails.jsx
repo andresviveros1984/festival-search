@@ -47,7 +47,7 @@ function EventDetails({ favourites, setFavourites }) {
                 <Typography
                     variant="h1"
                     color="initial"
-                    sx={{ border: '1px solid blue' }}
+                    sx={{ border: '1px solid blue', textAlign: 'center' }}
                 >
                     {/* {eventDetails.results && eventDetails.results.eventname} */}
                     {eventDetails.results.eventname}
