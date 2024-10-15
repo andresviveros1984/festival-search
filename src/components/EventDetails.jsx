@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { API_KEY } from '../config'
 import { getEventDetails } from '../services/api/eventDetails'
-import { faN } from '@fortawesome/free-solid-svg-icons'
 
 function EventDetails({ favourites, setFavourites }) {
     const { id } = useParams()
@@ -22,7 +21,6 @@ function EventDetails({ favourites, setFavourites }) {
         setFavourites([...favourites, favItem])
         // console.log('logging favourites from details comp', favItem)
     }
-    console.log('event details', eventDetails)
     useEffect(() => {
         if (id) {
             getEventDetails(id, setEventDetails)
@@ -42,12 +40,15 @@ function EventDetails({ favourites, setFavourites }) {
                 border: '1px solid green',
             }}
         >
-            {/* {console.log(eventDetails.results.eventname)} */}
             <div className="heading">
                 <Typography
                     variant="h1"
                     color="initial"
-                    sx={{ border: '1px solid blue', textAlign: 'center' }}
+                    sx={{
+                        border: '1px solid blue',
+                        textAlign: 'center',
+                        fontSize: '20px',
+                    }}
                 >
                     {/* {eventDetails.results && eventDetails.results.eventname} */}
                     {eventDetails.results.eventname}

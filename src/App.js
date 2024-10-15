@@ -35,7 +35,7 @@ function App() {
   //define api call here and
   return (
     <div className="App">
-      {console.log("favourites from app", favourites)}
+
       <Layout data={data} setData={setData}>
         <Routes>
           <Route path='/' element={<Home data={data} />} />

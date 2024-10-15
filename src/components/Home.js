@@ -9,6 +9,7 @@ function Home({ data, getSingleEvent }) {
 
     return (
         <Box sx={{ display: "flex", justifyContent: "center", mt: "10px" }}>
+            {console.log(data)}
             <ImageList sx={{ width: 800, height: 550 }} cols={5} rowHeight={164}>
                 {data.map((festivalImage) => (
                     <ImageListItem key={festivalImage.largeimageurl}>
@@ -18,7 +19,6 @@ function Home({ data, getSingleEvent }) {
                             src={festivalImage.largeimageurl}
                             alt={festivalImage.eventname}
                             loading="lazy"
-                            onClick={() => console.log("i have been clicked " + festivalImage.id)}
                             // onClick={() => getSingleEvent(festivalImage.id)}
                             onClick={() => setImage(festivalImage.xlargeimageurl
                             )}
