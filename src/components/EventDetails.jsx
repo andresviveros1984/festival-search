@@ -37,7 +37,6 @@ function EventDetails({ favourites, setFavourites }) {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                border: '1px solid green',
             }}
         >
             <div className="heading">
@@ -46,18 +45,21 @@ function EventDetails({ favourites, setFavourites }) {
                     color="initial"
                     sx={{
                         border: '1px solid blue',
-                        textAlign: 'center',
-                        fontSize: '20px',
+                        fontSize: '40px',
                     }}
                 >
-                    {/* {eventDetails.results && eventDetails.results.eventname} */}
                     {eventDetails.results.eventname}
                 </Typography>
             </div>
             <div className="event-date-times">
-                <Typography variant="h2" color="initial">
+                <Typography
+                    variant="h2"
+                    color="initial"
+                    sx={{
+                        fontSize: '30px',
+                    }}
+                >
                     Saturday 2 September 2024
-                    {/* {eventDetails.results && eventDetails.results.date} */}
                     {eventDetails.results.date}
                 </Typography>
                 <Typography
