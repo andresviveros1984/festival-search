@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { API_KEY } from '../config'
 import { getEventDetails } from '../services/api/eventDetails'
+import { formatDate } from '../helperFunctions/formatDate'
 
 function EventDetails({ favourites, setFavourites }) {
     const { id } = useParams()
@@ -59,8 +60,7 @@ function EventDetails({ favourites, setFavourites }) {
                         fontSize: '30px',
                     }}
                 >
-                    Saturday 2 September 2024
-                    {eventDetails.results.date}
+                    {formatDate(eventDetails.results.date)}
                 </Typography>
                 <Typography
                     variant="h3"

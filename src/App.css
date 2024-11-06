@@ -20,7 +20,7 @@
 
 
 .nav-link {
-  height: 60px;
+  height: 65px;
   /* width: max-content; */
   width: 110px;
   display: flex;
@@ -74,7 +74,9 @@
   background-color: rgb(235, 131, 238);
 }
 
-
+#input{
+  border: none;
+}
 
 @media only screen and (max-width: 1098px) {
   .navigation{

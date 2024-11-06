@@ -115,6 +115,7 @@ const Header = ({ data, setData }) => {
                     </div>
 
                     <TextField
+                        color="secondary"
                         placeholder="Search Events…"
                         InputProps={{
                             startAdornment: (
