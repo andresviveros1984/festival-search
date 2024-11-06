@@ -78,11 +78,25 @@
   border: none;
 }
 
+.favourites-container{
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media only screen and (max-width: 1098px) {
   .navigation{
     width: 50%;
   }
   
+}
+
+@media only screen and (max-width:1004px){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 

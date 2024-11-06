@@ -5,6 +5,7 @@ import axios from 'axios'
 import { API_KEY } from '../config'
 import { getEventDetails } from '../services/api/eventDetails'
 import { formatDate } from '../helperFunctions/formatDate'
+import Dialogue from './Dialogue'
 
 function EventDetails({ favourites, setFavourites }) {
     const { id } = useParams()
@@ -40,6 +41,7 @@ function EventDetails({ favourites, setFavourites }) {
                 alignItems: 'center',
             }}
         >
+            <Dialogue />
             <div className="heading">
                 <Typography
                     variant="h1"

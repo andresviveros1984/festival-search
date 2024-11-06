@@ -14,18 +14,17 @@ export default function Favourites({ favourites }) {
     // list favourties,
     //for each one have a botton that will nagivate to the event for booking/checkout
     return (
-        <div>
+        <div className="favourites-container">
             {console.log('favourites', favourites)}
-
-            <List
-                sx={{
-                    width: '100%',
-                    maxWidth: 360,
-                    bgcolor: 'background.paper',
-                }}
-            >
-                {favourites.map((favItem) => {
-                    return (
+            {favourites.map((favItem) => {
+                return (
+                    <List
+                        sx={{
+                            width: '100%',
+                            maxWidth: 360,
+                            bgcolor: 'background.paper',
+                        }}
+                    >
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
                                 <Avatar
@@ -53,10 +52,11 @@ export default function Favourites({ favourites }) {
                                 }
                             />
                         </ListItem>
-                    )
-                })}
-                <Divider variant="inset" component="li" />
-            </List>
+
+                        <Divider variant="inset" component="li" />
+                    </List>
+                )
+            })}
         </div>
     )
 }
