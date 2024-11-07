@@ -8,13 +8,14 @@ import DialogTitle from '@mui/material/DialogTitle'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
 
-export default function Dialogue() {
+export default function Dialogue({ handleFavourites, results }) {
     const [open, setOpen] = React.useState(false)
     const theme = useTheme()
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
 
     const handleClickOpen = () => {
         setOpen(true)
+        handleFavourites(results)
     }
 
     const handleClose = () => {
@@ -24,7 +25,7 @@ export default function Dialogue() {
     return (
         <React.Fragment>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Open responsive dialog
+                Add to Favourites
             </Button>
             <Dialog
                 fullScreen={fullScreen}
@@ -37,9 +38,7 @@ export default function Dialogue() {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        Let Google help apps determine location. This means
-                        sending anonymous location data to Google, even when no
-                        apps are running.
+                        EVENT ADDED TO FAVOURITES
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

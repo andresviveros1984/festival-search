@@ -21,7 +21,7 @@ export default function Favourites({ favourites }) {
                     <List
                         sx={{
                             width: '100%',
-                            maxWidth: 360,
+                            margin: '5px',
                             bgcolor: 'background.paper',
                         }}
                     >
@@ -53,7 +53,7 @@ export default function Favourites({ favourites }) {
                             />
                         </ListItem>
 
-                        <Divider variant="inset" component="li" />
+                        {/* <Divider variant="inset" component="li" /> */}
                     </List>
                 )
             })}

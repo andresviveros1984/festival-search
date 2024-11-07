@@ -41,7 +41,6 @@ function EventDetails({ favourites, setFavourites }) {
                 alignItems: 'center',
             }}
         >
-            <Dialogue />
             <div className="heading">
                 <Typography
                     variant="h1"
@@ -79,10 +78,13 @@ function EventDetails({ favourites, setFavourites }) {
                 <button onClick={() => navigate('/favourites')}>
                     Favourites
                 </button>
-
-                <button onClick={() => handleFavourites(eventDetails.results)}>
+                <Dialogue
+                    handleFavourites={handleFavourites}
+                    results={eventDetails.results}
+                />
+                {/* <button onClick={() => handleFavourites(eventDetails.results)}>
                     add to favourites?
-                </button>
+                </button> */}
             </div>
         </Box>
     )

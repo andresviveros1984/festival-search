@@ -16,7 +16,7 @@ import ShareIcon from '@mui/icons-material/Share'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Link } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props
     return <IconButton {...other} />
@@ -28,7 +28,15 @@ const ExpandMore = styled((props) => {
     }),
 }))
 
-export default function Event({ data }) {
+export default function Event({ data, favourites, setFavourites }) {
+    const navigate = useNavigate()
+
+    function handleFavourites(favItem) {
+        setFavourites([...favourites, favItem])
+        // console.log('logging favourites from details comp', favItem)
+        navigate('/favourites')
+    }
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -69,7 +77,10 @@ export default function Event({ data }) {
                 </Typography> */}
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
+                <IconButton
+                    aria-label="add to favorites"
+                    onClick={() => handleFavourites(data)}
+                >
                     <FavoriteIcon />
                 </IconButton>
                 <Link to={`/event/${data.id}`}>

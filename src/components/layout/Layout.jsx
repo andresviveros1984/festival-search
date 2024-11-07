@@ -14,7 +14,7 @@ const Layout = ({ children, data, setData }) => {
     return (
         <div>
             <Header data={data} setData={setData} />
-            <div>{children}</div>
+            <div style={{ minHeight: '63vh' }}>{children}</div>
             <Footer />
         </div>
     )

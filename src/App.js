@@ -39,11 +39,11 @@ function App() {
       <Layout data={data} setData={setData}>
         <Routes>
           <Route path='/' element={<Home data={data} />} />
-          <Route path='date' element={<Date date={data} />} />
-          <Route path='club' element={<Clubs club={data} />} />
-          <Route path='kids' element={<Kids kids={data} />} />
-          <Route path='sport' element={<Sports sport={data} />} />
-          <Route path='theatre' element={<Theatres theatre={data} />} />
+          <Route path='date' element={<Date date={data} favourites={favourites} setFavourites={setFavourites} />} />
+          <Route path='club' element={<Clubs club={data} favourites={favourites} setFavourites={setFavourites} />} />
+          <Route path='kids' element={<Kids kids={data} favourites={favourites} setFavourites={setFavourites} />} />
+          <Route path='sport' element={<Sports sport={data} favourites={favourites} setFavourites={setFavourites} />} />
+          <Route path='theatre' element={<Theatres theatre={data} favourites={favourites} setFavourites={setFavourites} />} />
           <Route path='/event/:id' element={<EventDetails favourites={favourites} setFavourites={setFavourites} />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} setFavourites={setFavourites} />} />
         </Routes>
