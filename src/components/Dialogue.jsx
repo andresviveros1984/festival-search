@@ -34,19 +34,16 @@ export default function Dialogue({ handleFavourites, results }) {
                 aria-labelledby="responsive-dialog-title"
             >
                 <DialogTitle id="responsive-dialog-title">
-                    {"Use Google's location service?"}
+                    {results.eventname}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        EVENT ADDED TO FAVOURITES
+                        Has been added to your list of favourites
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
-                        Disagree
-                    </Button>
                     <Button onClick={handleClose} autoFocus>
-                        Agree
+                        Close
                     </Button>
                 </DialogActions>
             </Dialog>

@@ -17,6 +17,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import styledComp from 'styled-components'
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props
     return <IconButton {...other} />
@@ -28,66 +31,82 @@ const ExpandMore = styled((props) => {
     }),
 }))
 
+const theme = createTheme({
+    palette: {
+        ochre: {
+            main: '#f48fb1',
+            light: '#E9DB5D',
+            dark: '#A29415',
+            contrastText: '#242105',
+        },
+    },
+})
+
 export default function Event({ data, favourites, setFavourites }) {
     const navigate = useNavigate()
-
+    const [color, setColor] = React.useState('')
     function handleFavourites(favItem) {
         setFavourites([...favourites, favItem])
-        // console.log('logging favourites from details comp', favItem)
-        navigate('/favourites')
+        console.log('logging favourites from details comp', favItem)
+        //navigate('/favourites')
+        // setColor(ochre.main)
     }
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardHeader
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                sx={{
-                    height: '70px',
-                }}
-                title={
-                    <div
-                        style={{
-                            fontSize: '20px',
-                            textOverflow: 'ellipsis',
-                            overflow: 'hidden',
-                            whiteSpace: 'nowrap',
-                            width: '200px',
-                        }}
+        <ThemeProvider theme={theme}>
+            <Card sx={{ maxWidth: 345 }}>
+                <CardHeader
+                    action={
+                        <IconButton aria-label="settings">
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    sx={{
+                        height: '70px',
+                    }}
+                    title={
+                        <div
+                            style={{
+                                fontSize: '20px',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap',
+                                width: '200px',
+                            }}
+                        >
+                            {data.eventname}
+                        </div>
+                    }
+                    subheader={'On ' + data.date}
+                />
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image={data.xlargeimageurl}
+                    alt=""
+                />
+
+                <CardActions disableSpacing>
+                    <IconButton
+                        aria-label="add to favorites"
+                        onClick={() => handleFavourites(data)}
                     >
-                        {data.eventname}
-                    </div>
-                }
-                subheader={'On ' + data.date}
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                image={data.xlargeimageurl}
-                alt=""
-            />
-            <CardContent>
-                {/* <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun
-                    meal to cook together with your guests. Add 1 cup of frozen
-                    peas along with the mussels, if you like.
-                </Typography> */}
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton
-                    aria-label="add to favorites"
-                    onClick={() => handleFavourites(data)}
-                >
-                    <FavoriteIcon />
-                </IconButton>
-                <Link to={`/event/${data.id}`}>
-                    <Button size="small">Learn More</Button>
-                </Link>
-            </CardActions>
-            <Collapse timeout="auto" unmountOnExit></Collapse>
-        </Card>
+                        <FavoriteIcon color={color} />
+                    </IconButton>
+                    <StyledLInk to={`/event/${data.id}`}>
+                        <Button size="small">Learn More</Button>
+                    </StyledLInk>
+                    <StyledLInk to={`/event/cart`}>
+                        <Button size="small">Add To Cart</Button>
+                    </StyledLInk>
+                </CardActions>
+                <Collapse timeout="auto" unmountOnExit></Collapse>
+            </Card>
+        </ThemeProvider>
     )
 }
+
+const StyledLInk = styled(Link)`
+    border: 1px solid red;
+    margin: 1px;
+`
