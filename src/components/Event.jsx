@@ -44,7 +44,6 @@ const theme = createTheme({
 
 export default function Event({ data, favourites, setFavourites }) {
     const navigate = useNavigate()
-    const [color, setColor] = React.useState('')
     function handleFavourites(favItem) {
         setFavourites([...favourites, favItem])
         console.log('logging favourites from details comp', favourites)
@@ -96,14 +95,10 @@ export default function Event({ data, favourites, setFavourites }) {
                         {favourites.findIndex((fav) => fav.id === data.id) !==
                         -1 ? (
                             <FavoriteIcon
-                                // color={color}
                                 style={{ color: 'rgb(235, 131, 238)' }}
                             />
                         ) : (
-                            <FavoriteIcon
-                                // color={color}
-                                style={{ color: 'black' }}
-                            />
+                            <FavoriteIcon style={{ color: 'black' }} />
                         )}
                     </IconButton>
                     <StyledLInk to={`/event/${data.id}`}>
@@ -120,6 +115,7 @@ export default function Event({ data, favourites, setFavourites }) {
 }
 
 const StyledLInk = styled(Link)`
-    border: 1px solid red;
+    border: 1px solid rgb(235, 131, 238);
+    border-radius: 4px;
     margin: 1px;
 `

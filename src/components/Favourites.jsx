@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider'
 import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
+import { Box } from '@mui/material'
 
 export default function Favourites({ favourites }) {
     const [localFavourites, setLocalFavourites] = useState()
@@ -16,47 +17,56 @@ export default function Favourites({ favourites }) {
     return (
         <div className="favourites-container">
             {console.log('favourites', favourites)}
-            {favourites.map((favItem) => {
-                return (
-                    <List
-                        sx={{
-                            width: '100%',
-                            margin: '5px',
-                            bgcolor: 'background.paper',
-                        }}
-                    >
-                        <ListItem alignItems="flex-start">
-                            <ListItemAvatar>
-                                <Avatar
-                                    alt="Remy Sharp"
-                                    src={favItem.imageurl}
+
+            {favourites.length == 0 ? (
+                <Box>
+                    <Typography variant="h6" color="initial">
+                        There are no favourite events
+                    </Typography>
+                </Box>
+            ) : (
+                favourites.map((favItem) => {
+                    return (
+                        <List
+                            sx={{
+                                width: '100%',
+                                margin: '5px',
+                                bgcolor: 'background.paper',
+                            }}
+                        >
+                            <ListItem alignItems="flex-start">
+                                <ListItemAvatar>
+                                    <Avatar
+                                        alt="Remy Sharp"
+                                        src={favItem.imageurl}
+                                    />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={favItem.eventname}
+                                    secondary={
+                                        <React.Fragment>
+                                            <Typography
+                                                component="span"
+                                                variant="body2"
+                                                sx={{
+                                                    color: 'text.primary',
+                                                    display: 'inline',
+                                                }}
+                                            >
+                                                {favItem.venue.cityname}
+                                            </Typography>
+
+                                            {favItem.description}
+                                        </React.Fragment>
+                                    }
                                 />
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={favItem.eventname}
-                                secondary={
-                                    <React.Fragment>
-                                        <Typography
-                                            component="span"
-                                            variant="body2"
-                                            sx={{
-                                                color: 'text.primary',
-                                                display: 'inline',
-                                            }}
-                                        >
-                                            {favItem.venue.cityname}
-                                        </Typography>
+                            </ListItem>
 
-                                        {favItem.description}
-                                    </React.Fragment>
-                                }
-                            />
-                        </ListItem>
-
-                        {/* <Divider variant="inset" component="li" /> */}
-                    </List>
-                )
-            })}
+                            {/* <Divider variant="inset" component="li" /> */}
+                        </List>
+                    )
+                })
+            )}
         </div>
     )
 }
