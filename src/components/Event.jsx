@@ -47,13 +47,14 @@ export default function Event({ data, favourites, setFavourites }) {
     const [color, setColor] = React.useState('')
     function handleFavourites(favItem) {
         setFavourites([...favourites, favItem])
-        console.log('logging favourites from details comp', favItem)
+        console.log('logging favourites from details comp', favourites)
         //navigate('/favourites')
-        // setColor(ochre.main)
+        // setColor('red')
     }
 
     return (
         <ThemeProvider theme={theme}>
+            {/* {console.log('logging data', data)} */}
             <Card sx={{ maxWidth: 345 }}>
                 <CardHeader
                     action={
@@ -91,7 +92,19 @@ export default function Event({ data, favourites, setFavourites }) {
                         aria-label="add to favorites"
                         onClick={() => handleFavourites(data)}
                     >
-                        <FavoriteIcon color={color} />
+                        {/* {compare the data in the favourites array} */}
+                        {favourites.findIndex((fav) => fav.id === data.id) !==
+                        -1 ? (
+                            <FavoriteIcon
+                                // color={color}
+                                style={{ color: 'rgb(235, 131, 238)' }}
+                            />
+                        ) : (
+                            <FavoriteIcon
+                                // color={color}
+                                style={{ color: 'black' }}
+                            />
+                        )}
                     </IconButton>
                     <StyledLInk to={`/event/${data.id}`}>
                         <Button size="small">Learn More</Button>

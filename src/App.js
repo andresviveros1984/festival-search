@@ -14,6 +14,8 @@ import axios from 'axios'
 import EventDetails from './components/EventDetails';
 import { getEvent } from './services/api/events';
 import Favourites from './components/Favourites';
+import Cart from './components/Cart';
+
 
 function App() {
   const location = useLocation()
@@ -45,6 +47,7 @@ function App() {
           <Route path='sport' element={<Sports sport={data} favourites={favourites} setFavourites={setFavourites} />} />
           <Route path='theatre' element={<Theatres theatre={data} favourites={favourites} setFavourites={setFavourites} />} />
           <Route path='/event/:id' element={<EventDetails favourites={favourites} setFavourites={setFavourites} />} />
+          <Route path='/event/cart' element={<Cart />} />
           <Route path='/favourites' element={<Favourites favourites={favourites} setFavourites={setFavourites} />} />
         </Routes>
       </Layout>
