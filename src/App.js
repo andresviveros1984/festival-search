@@ -34,6 +34,13 @@ function App() {
   }, [location.pathname])
 
 
+  useEffect(() => {
+    const localFavourites = localStorage.getItem('favourites')
+    console.log(typeof localFavourites, "checking local favourites")
+    setFavourites(JSON.parse(localFavourites))
+  }, [])
+
+
   //define api call here and
   return (
     <div className="App">

@@ -10,10 +10,11 @@ import Avatar from '@mui/material/Avatar'
 import { Box } from '@mui/material'
 
 export default function Favourites({ favourites }) {
-    const [localFavourites, setLocalFavourites] = useState()
+    // const [localFavourites, setLocalFavourites] = useState()
 
     // list favourties,
     //for each one have a botton that will nagivate to the event for booking/checkout
+
     return (
         <div className="favourites-container">
             {console.log('favourites', favourites)}
