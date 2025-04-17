@@ -46,6 +46,7 @@ export default function Event({ data, favourites, setFavourites }) {
     const navigate = useNavigate()
     function addToFavourites(favItem) {
         setFavourites([...favourites, favItem])
+        console.log('favourites' + favItem)
         localStorage.setItem(
             'favourites',
             JSON.stringify([...favourites, favItem])
@@ -102,6 +103,25 @@ export default function Event({ data, favourites, setFavourites }) {
                 <CardActions disableSpacing>
                     {/* {compare the data in the favourites array} */}
                     {console.log(favourites, 'checking favourites')}
+                    {/* {favourites?.findIndex((fav) => fav.id === data.id) !==
+                    -1 ? (
+                        <IconButton
+                            aria-label="remov from favorites"
+                            onClick={() => removeFromFavourites(data)}
+                        >
+                            <FavoriteIcon
+                                style={{ color: 'rgb(235, 131, 238)' }}
+                            />
+                        </IconButton>
+                    ) : (
+                        <IconButton
+                            aria-label="add to favorites"
+                            onClick={() => addToFavourites(data)}
+                        >
+                            <FavoriteIcon style={{ color: 'black' }} />
+                        </IconButton>
+                    )} */}
+                    {/* 
                     {favourites?.findIndex((fav) => fav.id === data.id) !==
                     -1 ? (
                         <IconButton
@@ -119,7 +139,13 @@ export default function Event({ data, favourites, setFavourites }) {
                         >
                             <FavoriteIcon style={{ color: 'black' }} />
                         </IconButton>
-                    )}
+                    )} */}
+                    <IconButton
+                        aria-label="add to favorites"
+                        onClick={() => addToFavourites(data)}
+                    >
+                        <FavoriteIcon style={{ color: 'black' }} />
+                    </IconButton>
 
                     <StyledLInk to={`/event/${data.id}`}>
                         <Button size="small">Learn More</Button>
