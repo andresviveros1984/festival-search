@@ -43,16 +43,16 @@ const theme = createTheme({
 })
 
 export default function Event({ data, favourites, setFavourites }) {
+    const [favColourIcon, setFavColourIcon] = React.useState('black')
+
     function addToFavourites(favItem) {
         setFavourites([...favourites, favItem])
-        console.log('favourites' + favItem)
-        console.log('data: ' + data)
 
-        console.log('logging favourites from events comp', favourites)
         //navigate('/favourites')
         // setColor('red')
 
         //
+        toggleFavouritesIconColour(favourites, data)
     }
 
     function removeFromFavourites(favItem) {
@@ -60,6 +60,12 @@ export default function Event({ data, favourites, setFavourites }) {
         //maybe slice/splice to remove from array
         //setfavourites array with new array
         //set local storage to new array
+    }
+
+    function toggleFavouritesIconColour(favouritesArray, data) {
+        for (let i = 0; i <= favouritesArray.length; i++) {
+            console.log('looping through favorites ' + favouritesArray[i].id)
+        }
     }
 
     return (
