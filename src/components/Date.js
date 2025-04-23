@@ -6,9 +6,12 @@ function Date({ date, favourites, setFavourites }) {
     return (
         <Box sx={{}}>
             <div className='results-container'>
-                {date.map(data => {
+                {date.map((data, index) => {
                     return (
-                        <Event data={data} favourites={favourites} setFavourites={setFavourites} />
+                        <Event key={index}
+                            data={data}
+                            favourites={favourites}
+                            setFavourites={setFavourites} />
                     )
                 })}
             </div>

@@ -26,9 +26,10 @@ export default function Favourites({ favourites }) {
                     </Typography>
                 </Box>
             ) : (
-                favourites.map((favItem) => {
+                favourites.map((favItem, index) => {
                     return (
                         <List
+                            key={index}
                             sx={{
                                 width: '100%',
                                 margin: '5px',

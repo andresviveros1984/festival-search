@@ -6,9 +6,10 @@ function Kids({ kids, favourites, setFavourites }) {
     return (
         <Box>
             <div className="results-container">
-                {kids.map((kid) => {
+                {kids.map((kid, index) => {
                     return (
                         <Event
+                            key={index}
                             data={kid}
                             favourites={favourites}
                             setFavourites={favourites}

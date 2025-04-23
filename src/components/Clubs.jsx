@@ -6,9 +6,10 @@ function Clubs({ club, favourites, setFavourites }) {
     return (
         <Box>
             <div className="results-container">
-                {club.map((data) => {
+                {club.map((data, index) => {
                     return (
                         <Event
+                            key={index}
                             data={data}
                             favourites={favourites}
                             setFavourites={setFavourites}

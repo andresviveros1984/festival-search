@@ -119,8 +119,7 @@ export default function Event({ data, favourites, setFavourites }) {
                         </IconButton>
                     )} */}
 
-                    {/* 
-                    {favourites?.findIndex((fav) => fav.id === data.id) !==
+                    {/* {favourites?.findIndex((fav) => fav.id === data.id) !==
                     -1 ? (
                         <IconButton
                             aria-label="remov from favorites"
@@ -138,6 +137,7 @@ export default function Event({ data, favourites, setFavourites }) {
                             <FavoriteIcon style={{ color: 'black' }} />
                         </IconButton>
                     )} */}
+
                     <IconButton
                         aria-label="add to favorites"
                         onClick={() => addToFavourites(data)}
