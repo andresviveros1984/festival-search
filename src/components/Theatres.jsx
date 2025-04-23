@@ -6,9 +6,10 @@ function Theatres({ theatre, favourites, setFavourites }) {
     return (
         <Box>
             <div className="results-container">
-                {theatre.map((data) => {
+                {theatre.map((data, index) => {
                     return (
                         <Event
+                            key={index}
                             data={data}
                             favourites={favourites}
                             setFavourites={setFavourites}

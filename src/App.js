@@ -35,13 +35,6 @@ function App() {
 
 
   useEffect(() => {
-    // const localFavourites = localStorage.getItem('favourites')
-    // console.log(typeof localFavourites, "checking local favourites")
-    // if (favourites.length == 0) {
-    //   return
-    // } else {
-    //   setFavourites(JSON.parse(localFavourites))
-    // }
 
   }, [])
 
