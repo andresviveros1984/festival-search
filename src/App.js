@@ -22,16 +22,35 @@ function App() {
   const [data, setData] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
-
   useEffect(() => {
-    if (location.pathname.includes('event') || location.pathname.includes('favourites')) {
-      return
-    } else {
-      getEvent(location, setData);
+    // if we’re on an “event” or “favourites” page, bail out
+    if (
+      location.pathname.includes('event') ||
+      location.pathname.includes('favourites')
+    ) {
+      return;
     }
 
 
-  }, [location.pathname])
+    // define our async fetcher
+    const fetchEvents = async () => {
+      try {
+        const results = await getEvent(location);
+        setData(
+          results.map(res => ({
+            ...res,
+            is_favorite: favourites.some(fav => fav.id === res.id),
+          }))
+        );
+      } catch (err) {
+        console.error('Failed to fetch events:', err);
+      }
+    };
+
+
+    // call it
+    fetchEvents();
+  }, [location.pathname, favourites]);
 
 
   useEffect(() => {

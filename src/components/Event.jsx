@@ -45,16 +45,6 @@ const theme = createTheme({
 export default function Event({ data, favourites, setFavourites }) {
     const [favColourIcon, setFavColourIcon] = React.useState('black')
 
-    function addToFavourites(favItem) {
-        setFavourites([...favourites, favItem])
-
-        //navigate('/favourites')
-        // setColor('red')
-
-        //
-        toggleFavouritesIconColour(favourites, data)
-    }
-
     function removeFromFavourites(favItem) {
         // find item i want to remove
         //maybe slice/splice to remove from array
@@ -106,49 +96,15 @@ export default function Event({ data, favourites, setFavourites }) {
                 <CardActions disableSpacing>
                     {/* {compare the data in the favourites array} */}
 
-                    {/* {favourites?.findIndex((fav) => fav.id === data.id) !==
-                    -1 ? (
-                        <IconButton
-                            aria-label="remov from favorites"
-                            onClick={() => removeFromFavourites(data)}
-                        >
-                            <FavoriteIcon
-                                style={{ color: 'rgb(235, 131, 238)' }}
-                            />
-                        </IconButton>
-                    ) : (
-                        <IconButton
-                            aria-label="add to favorites"
-                            onClick={() => addToFavourites(data)}
-                        >
-                            <FavoriteIcon style={{ color: 'black' }} />
-                        </IconButton>
-                    )} */}
-
-                    {/* {favourites?.findIndex((fav) => fav.id === data.id) !==
-                    -1 ? (
-                        <IconButton
-                            aria-label="remov from favorites"
-                            onClick={() => removeFromFavourites(data)}
-                        >
-                            <FavoriteIcon
-                                style={{ color: 'rgb(235, 131, 238)' }}
-                            />
-                        </IconButton>
-                    ) : (
-                        <IconButton
-                            aria-label="add to favorites"
-                            onClick={() => addToFavourites(data)}
-                        >
-                            <FavoriteIcon style={{ color: 'black' }} />
-                        </IconButton>
-                    )} */}
-
                     <IconButton
                         aria-label="add to favorites"
-                        onClick={() => addToFavourites(data)}
+                        onClick={() => setFavourites([...favourites, data])}
                     >
-                        <FavoriteIcon style={{ color: 'black' }} />
+                        <FavoriteIcon
+                            style={{
+                                color: data.is_favorite ? 'red' : 'black',
+                            }}
+                        />
                     </IconButton>
 
                     <StyledLInk to={`/event/${data.id}`}>
